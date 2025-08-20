@@ -1,0 +1,46 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+*.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Logs and caches
+*.log
+*.out
+*.tmp
+*.swp
+*.swo
+.cache/
+*.DS_Store
+
+# VSCode / IDE settings
+.vscode/
+.idea/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+
+# Data files (optional – ignore large data sets)
+*.csv
+*.tsv
+*.zip
+*.tar
+*.gz
+*.h5
+*.pth
+*.pt
+*.model
+
+# OS files
+Thumbs.db
+.DS_Store
