@@ -4,11 +4,14 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 # Load the embedding model
 embedding_model = HuggingFaceEmbeddings(model_name="BAAI/bge-m3")
 
+# Base dir = repo root (two levels up from this script)
+BASE_DIR = Path(__file__).resolve().parent.parent
+VECTORSTORE_DIR = BASE_DIR / "src" / "vectorstore"
+
 # Load the saved vectorstore
 vectorstore = FAISS.load_local(
-    "D:/NLA/src/vectorstore", embedding_model, allow_dangerous_deserialization=True
+    str(VECTORSTORE_DIR), embedding_model, allow_dangerous_deserialization=True
 )
-
 # Create a retriever
 retriever = vectorstore.as_retriever()
 
