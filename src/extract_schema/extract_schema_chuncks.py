@@ -71,8 +71,10 @@ def extract_schema_chunks(db_path: Path, output_path: Path) -> None:
 
 # --- Entry Point ---
 if __name__ == "__main__":
-    default_db_path = Path("D:/NLA/db/data.duckdb")
-    default_output_path = Path(__file__).resolve().parent.parent / "schema" / "schema_chunks.txt"
+    BASE_DIR = Path(__file__).resolve().parent.parent   # repo root
+
+    default_db_path = BASE_DIR / "db" / "data.duckdb"
+    default_output_path = BASE_DIR / "src" / "schema" / "schema_chunks.txt"
 
     parser = argparse.ArgumentParser(description="Extract DuckDB schema chunks for RAG.")
     parser.add_argument("--db_path", default=str(default_db_path), help="Path to DuckDB file")
