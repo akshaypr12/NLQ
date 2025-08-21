@@ -6,10 +6,15 @@ from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.docstore.document import Document
 
+from pathlib import Path
+
 # --- Configurable Constants ---
 DEFAULT_MODEL_NAME = "BAAI/bge-m3"
-DEFAULT_SCHEMA_PATH = Path("D:/NLA/src/schema/schema_chunks.txt")
-DEFAULT_VECTORSTORE_DIR = Path(__file__).resolve().parent.parent / "vectorstore"
+
+# Base dir = repo root (two levels up from this file)
+BASE_DIR = Path(__file__).resolve().parent.parent
+DEFAULT_SCHEMA_PATH = BASE_DIR / "src" / "schema" / "schema_chunks.txt"
+DEFAULT_VECTORSTORE_DIR = BASE_DIR / "vectorstore"
 
 # --- Utility ---
 def read_schema_chunks(schema_path: Path) -> List[str]:
