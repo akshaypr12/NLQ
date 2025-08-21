@@ -115,11 +115,14 @@ def load_excel_to_duckdb(excel_dir: str, db_path: str) -> None:
 # --- Entry Point ---
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Load Excel files into DuckDB.")
-    default_excel_dir = Path("D:/NLA/Data")
-    default_db_path = Path("D:/NLA/db/data.duckdb")
+
+    # relative paths (works in GitHub, Codespaces, Linux, Windows)
+    default_excel_dir = Path("Data")                
+    default_db_path = Path("db/data.duckdb")        
 
     parser.add_argument("--excel_dir", default=str(default_excel_dir), help="Path to folder with Excel files")
     parser.add_argument("--db_path", default=str(default_db_path), help="Path to output DuckDB file")
     args = parser.parse_args()
 
     load_excel_to_duckdb(args.excel_dir, args.db_path)
+
